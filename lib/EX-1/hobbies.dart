@@ -26,12 +26,6 @@ void main() {
                 icon: Icons.travel_explore,
                 backgroundColor: Colors.green,
               ),
-              SizedBox(height: 10),
-              HobbyCard(
-                title: 'Skating',
-                icon: Icons.skateboarding,
-                backgroundColor: Colors.blueGrey,
-              ),
             ],
           ),
         ),
