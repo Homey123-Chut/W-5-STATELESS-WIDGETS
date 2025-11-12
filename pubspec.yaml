@@ -92,4 +92,8 @@ flutter:
     - assets/dart.png
     - assets/firebase.png
     - assets/flutter.png
+    - assets/cloudy.png
+    - assets/sunny.png
+    - assets/sunnyCloudy.png
+    - assets/veryCloudy.png
 
