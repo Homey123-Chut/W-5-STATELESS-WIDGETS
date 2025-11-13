@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
 enum WeatherCondition {
-  cloudy(imagePath: 'assets/cloudy.png'),
-  sunny(imagePath: 'assets/sunny.png'),
-  sunnyCloudy(imagePath: 'assets/sunnyCloudy.png'),
-  veryCloudy(imagePath: 'assets/veryCloudy.png');
+  cloudy(image: 'assets/cloudy.png'),
+  sunny(image: 'assets/sunny.png'),
+  sunnyCloudy(image: 'assets/sunnyCloudy.png'),
+  veryCloudy(image: 'assets/veryCloudy.png');
 
-  final String imagePath;
+  final String image;
 
   const WeatherCondition({
-    required this.imagePath,
+    required this.image,
   });
 }
 
@@ -34,8 +34,8 @@ class City {
 void main() {
   runApp(
     MaterialApp(
-      debugShowCheckedModeBanner: false,
       title: 'Weather Forecast',
+      debugShowCheckedModeBanner: false,
       home: WeatherApp(),
     ),
   );
@@ -85,18 +85,12 @@ class WeatherApp extends StatelessWidget {
       backgroundColor: Colors.blue[50],
       appBar: AppBar(
         backgroundColor: Colors.blue[300],
-        elevation: 0,
+
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(Icons.location_on, color: Colors.white),
-            SizedBox(width: 8),
-            Text(
-              'Weather Forecast',
-              style: TextStyle(color: Colors.white),
-            ),
-          ],
+          
         ),
+        
         actions: [
           IconButton(
             icon: Icon(Icons.menu, color: Colors.white),
@@ -130,7 +124,6 @@ class WeatherCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return PhysicalModel(
       color: Colors.transparent,
-      elevation: 8,
       shadowColor: Colors.black26,
       borderRadius: BorderRadius.circular(20),
       child: Stack(
@@ -148,7 +141,6 @@ class WeatherCard extends StatelessWidget {
             padding: EdgeInsets.all(20),
             child: Row(
               children: [
-                // Left side: Weather Image
                 Container(
                   width: 60,
                   height: 60,
@@ -158,12 +150,12 @@ class WeatherCard extends StatelessWidget {
                   ),
                   padding: EdgeInsets.all(10),
                   child: Image.asset(
-                    city.condition.imagePath,
-                    fit: BoxFit.contain,
+                    city.condition.image,
+                    
                   ),
                 ),
                 SizedBox(width: 16),
-                // Middle: City name and temperatures
+               
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -195,7 +187,6 @@ class WeatherCard extends StatelessWidget {
                     ],
                   ),
                 ),
-                // Right side: Current temperature
                 Text(
                   '${city.currentTemp.toStringAsFixed(1)}°C',
                   style: TextStyle(
@@ -207,7 +198,7 @@ class WeatherCard extends StatelessWidget {
               ],
             ),
           ),
-          // Decorative oval on the right side
+          
           Positioned(
             right: -30,
             top: -20,

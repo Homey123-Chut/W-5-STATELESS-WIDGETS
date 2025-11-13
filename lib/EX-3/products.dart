@@ -4,27 +4,27 @@ enum Product {
   dart(
     title: 'Dart',
     description: 'the best object language',
-    imagePath: 'assets/dart.png',
+    image: 'assets/dart.png',
   ),
   flutter(
     title: 'Flutter',
     description: 'the best mobile widget library',
-    imagePath: 'assets/flutter.png',
+    image: 'assets/flutter.png',
   ),
   firebase(
     title: 'Firebase',
     description: 'the best cloud database',
-    imagePath: 'assets/firebase.png',
+    image: 'assets/firebase.png',
   );
 
   final String title;
   final String description;
-  final String imagePath;
+  final String image;
 
   const Product({
     required this.title,
     required this.description,
-    required this.imagePath,
+    required this.image,
   });
 }
 
@@ -80,10 +80,10 @@ class ProductCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Image.asset(
-              product.imagePath,
+              product.image,
               width: 80,
               height: 80,
-              fit: BoxFit.contain,
+              
             ),
             SizedBox(height: 10),
             Text(

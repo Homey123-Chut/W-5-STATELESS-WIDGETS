@@ -3,28 +3,35 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(
     MaterialApp(
-      title: 'The hobbies',
+      title: 'The Hobbies',
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Colors.grey,
         appBar: AppBar(
-          backgroundColor: const Color.fromARGB(255, 237, 216, 223),
-          title: Text('My Hobbies',
-                style: TextStyle(
-                  fontSize: 25,
-                  color: Colors.black,
-                ),
+          backgroundColor: const Color.fromARGB(255, 239, 215, 214),
+          title: const Text(
+            'My Hobbies',
+            style: TextStyle(
+              fontSize: 25,
+              color: Colors.black,
+            ),
           ),
         ),
-        body: Padding(
+        body: const Padding(
           padding: EdgeInsets.all(40),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               HobbyCard(
-                title: 'Travelling',
+                color: Colors.green,
                 icon: Icons.travel_explore,
-                backgroundColor: Colors.green,
+                title: 'Travelling',
+              ),
+              SizedBox(height: 10),
+              HobbyCard(
+                color: Colors.blueGrey,
+                icon: Icons.skateboarding,
+                title: 'Skating',
               ),
             ],
           ),
@@ -35,35 +42,36 @@ void main() {
 }
 
 class HobbyCard extends StatelessWidget {
-  final String title;
+  final Color color;
   final IconData icon;
-  final Color backgroundColor;
+  final String title;
 
   const HobbyCard({
     super.key,
-    required this.title,
+    this.color = Colors.blue,
     required this.icon,
-    this.backgroundColor = Colors.blue,
+    required this.title,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
       decoration: BoxDecoration(
-        color: backgroundColor,
+        color: color,
         borderRadius: BorderRadius.circular(20),
       ),
       child: Center(
         child: Row(
           children: [
             Icon(icon, color: Colors.white, size: 25),
-            SizedBox(width: 20),
-            Text(title,
-                  style: TextStyle(
-                    fontSize: 30,
-                    color: Colors.white,
-                  ),
+            const SizedBox(width: 20),
+            Text(
+              title,
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 30,
+              ),
             ),
           ],
         ),
